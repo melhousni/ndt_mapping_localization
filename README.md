@@ -1,5 +1,10 @@
 # ndt_mapping_localization
-C++ Implementation of the NDT mapping and localization algorithm for ADV on ROS.
+C++ Implementation of the NDT mapping and localization algorithm for ADV on ROS.  
+
+Two packages available in this implementation :
+
+- **vehicle_mapping** : Pointcloud registration using the 3D NDT algorithm assisted by an EKF.
+- **vehicle_localization** : 6-DoF Localization using the 3D NDT algorithm assisted by an EKF.
 
 ![NDT Results](/image.png)
 
@@ -19,12 +24,7 @@ cd ..
 catkin_make  
 
 **How to use :**
-
-Two packages available in this implementation :
-
-- **vehicle_mapping** : Pointcloud registration using the 3D NDT algorithm assisted by an EKF.
-- **vehicle_localization** : 6-DoF Localization using the 3D NDT algorithm assisted by an EKF.
-
+  
 - **vehicle_mapping** :  
   
   1. Set up the topic names for GPS and IMU data in the vehicle_state/launch/ekf.launch and vehicle_state/param.ekf.yaml. For more information of how to use the robot_localization package, please see : http://docs.ros.org/lunar/api/robot_localization/html/index.html  
