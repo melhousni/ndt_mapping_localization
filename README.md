@@ -36,8 +36,8 @@ catkin_make
   
     1. Set up the topic names for Pointcloud and EKF Odom data in vehicle_localization/launch/map_localization.launch 
     2. Set up the path to load the pointcloud map in vehicle_localization/launch/map_localization.launch 
-    3. Choose which method to use to find initial position. (RVIZ or GPS)  
-    If you choose RVIZ, you will have to give a guess to the localization package on where to start using the "2F Pose Estinmate" button in RVIZ  
+    3. Choose which method to use to find the initial position. (RVIZ or GPS)  
+    If you choose RVIZ, you will have to give a guess to the localization package on where to start using the "2D Pose Estimate" button in RVIZ  
     If you choose GPS, you will have to give the coordinates of the origin of your pointcloud map and set them up in vehicle_localization/launch/map_localization.launch.
     *At the moment, the method based on RVIZ is more stable than the GPS one*
     4. Launch a rosbag throught another terminal, or launch live data streaming from the sensors.
