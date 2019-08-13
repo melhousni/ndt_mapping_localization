@@ -1,5 +1,16 @@
 # ndt_mapping_localization
-Implementation of the NDT mapping and localization algorithm for ADV on ROS.
+C++ Implementation of the NDT mapping and localization algorithm for ADV on ROS.
 
-![GitHub Logo](/image.png)
-Format: ![Alt Text](url)
+![NDT Results](/image.png)
+
+Dependecies :
+
+- [robot_localization] (https://github.com/cra-ros-pkg/robot_localization)
+- [PCL] (https://github.com/PointCloudLibrary/pcl)
+- [OpenMP] (https://github.com/OpenMP)
+- [ndt_omp] (https://github.com/koide3/ndt_omp)
+
+Two packages available in this implementation :
+
+vehicle_mapping : Pointcloud registration using the 3D NDT algorithm assisted by an EKF.
+vehicle_localization : 6-DoF Localization using the 3D NDT algorithm assisted by an EKF.
