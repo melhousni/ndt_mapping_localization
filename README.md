@@ -13,7 +13,7 @@ C++ Implementation of the NDT mapping and localization algorithm for ADV on ROS.
 
 **Compile :**
 
-cd ~/catkin_ws/src  
+cd ~/catkin_ws  
 git clone https://github.com/melhousni/ndt_mapping_localization  
 cd ..  
 catkin_make  
