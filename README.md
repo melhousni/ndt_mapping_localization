@@ -18,12 +18,12 @@ git clone https://github.com/melhousni/ndt_mapping_localization
 cd ..  
 catkin_make  
 
+**How to use :**
+
 Two packages available in this implementation :
 
 - **vehicle_mapping** : Pointcloud registration using the 3D NDT algorithm assisted by an EKF.
 - **vehicle_localization** : 6-DoF Localization using the 3D NDT algorithm assisted by an EKF.
-
-**How to use :**
 
 - **vehicle_mapping** :  
   
@@ -53,3 +53,17 @@ If you still have problem running the packages, you can check the following vide
 **Notes**  
 - Sometimes, slowing down the rosbag playing speed (using -r) can improve the results of the localization package
 - Tweaking the scoreThreshold parameter can also improve results
+
+Please do not hesitate to report any problems or bugs you may encounter, either throught the issues page of this repo, or by sending me an email at melhousni@wpi.edu.
+
+**Citing**
+If you use theses packages, please consider refer to this repo with :
+
+@misc{housni2019,
+  author = {Mahdi, Elhousni},
+  title = {NDT-EKF Mapping & Localization},
+  year = {2019},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/melhousni/ndt_mapping_localization}}
+}
