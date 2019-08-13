@@ -66,5 +66,5 @@ If you use theses packages, please consider refer to this repo with :
   year = {2019},  
   publisher = {GitHub},  
   journal = {GitHub repository},  
-  howpublished = {https://github.com/melhousni/ndt_mapping_localization}  
+  howpublished = { https://github.com/melhousni/ndt_mapping_localization }  
 }
