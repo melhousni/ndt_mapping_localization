@@ -39,7 +39,7 @@ Two packages available in this implementation :
     3. Choose which method to use to find initial position. (RVIZ or GPS)  
     If you choose RVIZ, you will have to give a guess to the localization package on where to start using the "2F Pose Estinmate" button in RVIZ  
     If you choose GPS, you will have to give the coordinates of the origin of your pointcloud map and set them up in vehicle_localization/launch/map_localization.launch.
-    * At the moment, the method based on RVIZ is more stable than the GPS one*
+    *At the moment, the method based on RVIZ is more stable than the GPS one*
     4. Launch a rosbag throught another terminal, or launch live data streaming from the sensors.
     
 **Demo**
@@ -50,4 +50,6 @@ If you still have problem running the packages, you can check the following vide
 - RVIZ : https://www.youtube.com/watch?v=uujf0hiHXEE
 - GPS : https://www.youtube.com/watch?v=1BxHPAaOFik
  
- 
+**Notes**  
+- Sometimes, slowing down the rosbag playing speed (using -r) can improve the results of the localization package
+- Tweaking the scoreThreshold parameter can also improve results
