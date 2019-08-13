@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <!--- EKF -->
+    <include file="$(find vehicle_state)/launch/ekf.launch" />
+
+    <!--- RVIz -->
+    <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find vehicle_localization)/launch/map_localization.rviz" />
+
+    <!--- Initial Position (NDT) -->
+    <node pkg="vehicle_localization" type="init_pos" name="init_pos" output="screen">
+
+    <!--- ndt parameters -->
+    <param name="scoreThreshold" value="1000"     type="int" />
+    <param name="leaf"           value="2.0"    type="double" />
+    <param name="epsilon"        value="0.1"    type="double" />
+    <param name="step"           value="1.0"    type="double" />
+    <param name="res"            value="10"     type="double" />
+    <param name="iter"           value="60"     type="int" />
+
+    <param name="lidar_topic"    value="/velodyne_points"   type="string" />
+    <param name="imu_topic"      value="/imu/data"          type="string" />
+    <param name="gps_topic"      value="/raw_fix"           type="string" />
+
+    <param name="method"         value="gps"                type="string" />  <!--- gps or rviz --> 
+
+    <!--- init_gps coordinates -->
+    <param name="origin_longitude"          value="-71.7990133"     type="double" />
+    <param name="origin_latitude"           value="42.2742488"      type="double" />
+    <param name="origin_altitude"           value="116.907"         type="double" />
+
+    <param name="path"          type="string" value="/home/mahdi/release_ws/data/mymap.pcd" />
+
+    </node>
+
+    <!--- Localization (NDT) -->
+    <node pkg="vehicle_localization" type="map_localization" name="map_localization" output="screen">
+
+    <!--- ndt parameters -->
+    <param name="scoreThreshold" value="1000"    type="double" />
+    <param name="leaf"           value="2.0"    type="double" />
+    <param name="epsilon"        value="0.1"    type="double" />
+    <param name="step"           value="1.0"    type="double" />
+    <param name="res"            value="10"     type="double" />
+    <param name="iter"           value="60"     type="int" />
+
+    <!--- relevant ros topics -->
+    <param name="lidar_topic"    value="/velodyne_points" type="string" />
+    <param name="odom_topic"     value="/ekf_odom"        type="string" />
+
+    </node>
+
+</launch>

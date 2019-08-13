@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+ 
+
+
+    <node name="map_bl_tf" pkg="tf" type="static_transform_publisher" respawn="true" args="0 0 0 0 0 0 1 map odom 100" output="log"/>
+    <node name="odom_bl_tf" pkg="tf" type="static_transform_publisher" respawn="true" args="0 0 0 0 0 0 1 odom base_link 100" output="log"/>
+    <node name="bl_imu_tf" pkg="tf" type="static_transform_publisher" respawn="true" args="0 0 0 0 0 0 1 base_link imu 100" output="log"/>
+    <node name="world_map_tf" pkg="tf" type="static_transform_publisher" respawn="true" args="0 0 0 0 0 0 1 world map 100" output="log"/>
+
+
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_odom" clear_params="true">
+        <rosparam command="load" file="$(find vehicle_state)/params/ekf.yaml" />
+        <remap from="/odometry/filtered" to="/ekf_odom" />
+    </node>
+
+
+    <node pkg="robot_localization" type="navsat_transform_node" name="MTi_navsat_transform_node" clear_params="true">
+
+        <param name="frequency" value="50" />
+        <param name="delay" value="0" />
+        <param name="magnetic_declination_radians" value="-0.249625367" />
+        <param name="yaw_offset" value="0.23" />
+        <param name="zero_altitude" value="true" />
+        <param name="broadcast_utm_transform" value="false" />
+        <param name="publish_filtered_gps" value="false" />
+        <param name="use_odometry_yaw" value="true" />
+        <param name="wait_for_datum" value="false" />
+
+        <!--
+          input: 
+               1. fused odom data from ekf_odom: 
+                  /odometry/filtered -> /odometry/filtered_odom
+               2. raw gps data from MTi GPS driver:
+                  /gps/fix -> /vehicle/gps/fix2
+          -->
+
+
+        <remap from="/odometry/filtered"  to="/ekf_odom" />
+        <remap from="/gps/fix"            to="/raw_fix" />
+        <remap from="/imu/data"           to="/imu/data" /> 
+
+        <!--
+          output:
+               1. fused GPS message:
+                  /gps/filtered -> /gps/filtered_odom_vehicle
+               2. fused odom message:
+              	  /odometry/gps -> /odometry/filtered_odom_vehicle
+          -->
+
+        <remap from="/odometry/gps" to="/odometry/filtered_odom_vehicle" />
+        <remap from="/gps/filtered" to="/gps/filtered_odom_vehicle" />
+
+    </node>
+
+</launch>

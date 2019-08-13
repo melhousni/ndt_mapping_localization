@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <!--- RVIz -->
+    <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find vehicle_mapping)/launch/ndt_mapping.rviz" />
+
+    <!--- EKF -->
+    <include file="$(find vehicle_state)/launch/ekf.launch" />
+
+    <!--- NDT -->
+    <node pkg="vehicle_mapping" type="ndt" name="ndt" output="screen">
+
+    <!--- relevant ros topics -->
+    <param name="odom_topic"    value="/ekf_odom" type="string" />
+    <param name="lidar_topic"   value="/velodyne_points" type="string" />
+
+    <!--- use initial guess from odom in ndt -->
+    <param name="guess" value="true" type="bool" />
+
+    <!--- remove noise -->
+    <param name="noise" value="true" type="bool" />
+
+    <!--- filter top of the car -->
+    <param name="filter" value="true" type="bool" />
+
+    <!--- relevant paths -->
+    <param name="path_to_save_log" type="string" value="/home/mahdi/" />
+    <param name="path_to_save_pcd" type="string" value="/home/mahdi/" />
+    <param name="path_to_rosbag"   type="string" value="/home/mahdi/mkz_ws/fp_2_odom.bag" />
+
+    <!--- ndt parameters -->
+    <param name="scoreThreshold" value="50"     type="double" />
+    <param name="leaf"           value="2"      type="double" /> <!--- smaller leaf => bigger pcd  -->
+    <param name="epsilon"        value="0.1"    type="double" />
+    <param name="step"           value="1"      type="double" />
+    <param name="res"            value="10"     type="double" />
+    <param name="iter"           value="60"     type="double" />
+
+    </node>
+
+
+</launch>
