@@ -27,7 +27,6 @@
     <!--- relevant paths -->
     <param name="path_to_save_log" type="string" value="/home/mahdi/" />
     <param name="path_to_save_pcd" type="string" value="/home/mahdi/" />
-    <param name="path_to_rosbag"   type="string" value="/home/mahdi/mkz_ws/fp_2_odom.bag" />
 
     <!--- ndt parameters -->
     <param name="scoreThreshold" value="50"     type="double" />
