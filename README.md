@@ -44,7 +44,7 @@ catkin_make
     
 **Demo**
 
-We provide a pointcloud map built using the mapping package, and a rosbag recorded on a different day to test the localization package, which you can download from here : https://drive.google.com/open?id=1pfOZXEOyyDHQaHkjz8t6-o-5oJke4x-q  
+We provide a pointcloud map built using the mapping package, and a rosbag recorded on a different day to test the localization package, which you can download from here : https://drive.google.com/open?id=1mqBURRoouFT1HYkWjkjENcotXf75Tz0u
   
 If you still have problem running the packages, you can check the following videos demonstration how to use both the RVIZ and GPS approchaes : 
 - RVIZ : https://www.youtube.com/watch?v=uujf0hiHXEE
