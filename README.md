@@ -15,6 +15,7 @@ Two packages available in this implementation :
 - **PCL** (https://github.com/PointCloudLibrary/pcl)
 - **OpenMP** (https://github.com/OpenMP)
 - **ndt_omp** (https://github.com/koide3/ndt_omp)
+- **gps_common** (http://wiki.ros.org/gps_common)
 
 **Compile :**
 
